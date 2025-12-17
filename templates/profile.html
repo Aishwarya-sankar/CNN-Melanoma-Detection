@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="page">
+
+    <div class="left">
+        <h1>User Profile</h1>
+        <p>Account information</p>
+    </div>
+
+    <div class="right profile">
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Age:</strong> {{ user.age }}</p>
+        <p><strong>DOB:</strong> {{ user.dob }}</p>
+
+        <a href="/home">← Back to Home</a><br>
+        <a href="/logout">Logout →</a>
+    </div>
+
+</div>
+
+</body>
+</html>

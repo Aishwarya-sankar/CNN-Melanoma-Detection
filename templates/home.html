@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="page">
+
+    <div class="left">
+        <h1>Skin Image Analysis</h1>
+        <p>Upload a skin lesion image for AI-based diagnosis.</p>
+
+        {% if image %}
+        <img src="/{{ image }}" class="preview-img">
+        {% endif %}
+    </div>
+
+    <div class="right">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if result %}
+        <div class="result {{ css }}">
+            <h3>{{ result }}</h3>
+            <p>Confidence: {{ confidence }}%</p>
+            <p>{{ advice }}</p>
+        </div>
+        {% endif %}
+
+        <a href="/profile">View Profile →</a><br>
+        <a href="/logout">Logout →</a>
+    </div>
+
+</div>
+<p style="font-size:12px; opacity:0.7; margin-top:8px;">
+⚠️ This AI result is for educational purposes only and not a medical diagnosis.
+</p>
+
+
+</body>
+</html>
